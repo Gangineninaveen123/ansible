@@ -1,5 +1,5 @@
 - name: helloworld
-  host: locat
+  host: local
   connection: local #connecting local host means no need of username and password
   tasks:
   - name: print helloworld
