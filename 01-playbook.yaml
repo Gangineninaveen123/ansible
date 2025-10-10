@@ -1,6 +1,6 @@
 # ansible starts with [-] first
 - name: ping the server
-  hosts: backend
+  hosts: frontend
   tasks: #list of tasks
   - name: ping the server
     ansible.builtin.ping: #connecting to host [ansible ping module]
