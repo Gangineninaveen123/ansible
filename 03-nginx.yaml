@@ -1,5 +1,6 @@
 - name: nginx install and run  #playbook name
   hosts: frontend #connecting to hosts
+  become: yes #giving sudo access
   tasks:
   - name: Install nginx server # 1st task
     ansible.builtin.package: # installing all the webservers and packeages [ansible.builtin.package:], it ll take take care, below we mention name and what it needs toi do
