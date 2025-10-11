@@ -1,0 +1,13 @@
+- name: Playbook Variables
+  hosts: local
+  connection: local
+  vars:
+    COURSE: ansible # in shell we mention as COURSE=ansible and while referring in shell $COURSE or ${COURSE}
+    DURATION: 10 HR
+    MENTOR: Sivakumar
+
+  tasks:
+  - name: Printing course information
+    ansible.builtin.debug:
+    # In ANsible, vars: reference should be sourrende by the "{{ VARIABLE }}"
+      msg: "Hello the course is, {{ COURSE }} , and the duration is {{ DURATION }}, And the mainly the Mentor is superman {{ MENTOR }}"
