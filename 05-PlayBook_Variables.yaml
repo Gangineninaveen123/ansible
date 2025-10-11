@@ -1,0 +1,20 @@
+- name: Playbook Variables
+  hosts: local
+  connection: local
+  # the below vars: is like global level variables and it can access in n number of tasks if it  is present in the same playbook
+  vars:
+    COURSE: ansible # in shell we mention as COURSE=ansible and while referring in shell $COURSE or ${COURSE}
+    DURATION: 10 HR
+    MENTOR: Sivakumar
+
+  tasks:
+  - name: Printing course information
+    ansible.builtin.debug:
+    # In ANsible, vars: reference should be sourrende by the "{{ VARIABLE }}"
+      msg: "Hello the course is, {{ COURSE }} , and the duration is {{ DURATION }}, And the mainly the Mentor is superman {{ MENTOR }}"
+#accessing the same content in task 2
+  - name: Printing course information
+    ansible.builtin.debug:
+    # In ANsible, vars: reference should be sourrende by the "{{ VARIABLE }}"
+      msg: "Hello the course in Task 2, {{ COURSE }} , and the duration is {{ DURATION }}, And the mainly the Mentor is superman {{ MENTOR }}"
+      
