@@ -10,8 +10,8 @@
     - Shell
     - Ansible
     CONCEPTS: #map or directory or object referece like {} -> is like key value pair
-    CI: Jenkins
-    SCRIPTING: "Shell, Ansible, Python"
+      CI: Jenkins
+      SCRIPTING: "Shell, Ansible, Python"
 
   tasks:
   - name: Printing course information
