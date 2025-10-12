@@ -1,0 +1,17 @@
+- name: Taking variables dynamically while executing ansible playBook through vars_prompt
+  hosts: local
+  connection: local
+
+  vars_prompt: # taking variables dynamically on output in playBook
+  - name: USERNAME  # the value given in prompt stores here
+    prompt: Please enter your USERNAME
+    private: false # here false means it ll appear on runtime in ansible
+
+  - name: PASSWORD
+    prompt: Please eneter the PASSWORD
+    private: true
+
+  tasks:
+  - name: Printing user information
+    ansible.builtin.debug:
+      msg: "Hello, the usernbame is {{ USERNAME }} and the password is {{ PASSWORD }}"
