@@ -1,0 +1,19 @@
+- name: ansible data types
+  hosts: local
+  connection: local
+  vars:
+    COURSE: "Devsecops with AWS" # STRING
+    DURATION: 120 # INTEGER OR NUMBER
+    IS_LIVE: false  #boolean
+    TOOLS: # In ansible (-) referes to (List [])
+    - Linux
+    - Shell
+    - Ansible
+    CONCEPTS: #map or directory or object referece like {} -> is like key value pair
+    CI: Jenkins
+    SCRIPTING: "Shell, Ansible, Python"
+
+  tasks:
+  - name: Printing course information
+    ansible.builtin.debug:
+      msg: "Hello, the Course is {{ COURSE }}, THE Duration is {{ DURATION }}, is live? {{ IS_LIVE}}, the tools are {{ TOOLS }},THE Concepts are {{ CONCEPTS }} "
