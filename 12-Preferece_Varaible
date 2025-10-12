@@ -5,10 +5,10 @@
     GREETINGS: "Hello from Playbook"
   # vars_files:
   # - Course_variable.yaml
-  vars_prompt:
-  - name: GREETINGS
-    prompt: Please enter the GREETINGS
-    private: false
+  # vars_prompt:
+  # - name: GREETINGS
+  #   prompt: Please enter the GREETINGS
+  #   private: false
   tasks:
   - name: Print the GREETINGS
     # vars:
@@ -21,3 +21,5 @@
 
 #2nd) from Tasks, the variables ll be preferred
 # 3rd) from file
+# 4th) from prompt
+#
