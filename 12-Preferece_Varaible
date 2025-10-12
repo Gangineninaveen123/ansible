@@ -11,7 +11,13 @@
     private: false
   tasks:
   - name: Print the GREETINGS
-    vars:
-      GREETINGS: "Hello from Task"
+    # vars:
+    #   GREETINGS: "Hello from Task"
     ansible.builtin.debug:
       msg: "{{ GREETINGS }}"
+
+
+# Here in above code, always remember the first preference variable ll be command line arguments , which we are giving the arguments while execution.[ansible-playbook -i inventory.ini 12-Preferece_Varaible -e "GREETINGS=Hello_from_arguments"]
+
+#2nd) from Tasks, the variables ll be preferred
+# 3rd) 
