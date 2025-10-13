@@ -1,0 +1,8 @@
+- name: functions or filters in ansible playbook
+  hosts: local
+  connection: local
+
+  tasks:
+  - name: Checking undefined variables
+    ansible.builtin.debug:
+      msg: "Hello, the undefined variable is:- {{ person | default('karthikeya') }}" #here if person variable is already meantioned means, it takes that, otherwise, it takes default value, which we have mentioned after pipeline is called filter/functions, this is one type only....
