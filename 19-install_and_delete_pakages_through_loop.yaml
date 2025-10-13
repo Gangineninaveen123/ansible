@@ -1,0 +1,13 @@
+- name: Insatll packages through loop
+  hosts: frontend
+  become: yes
+  tasks:
+  - name: Installing packages through task of loop
+    ansible.builtin.package:
+      name: "{{ item.name }}"
+      state: "{{ item.state }}"
+
+    loop:
+    - { name: 'nginx', state: 'present' }
+    - { name: 'mysql', state: 'absent' }
+    - { name: 'zip', state: 'absent' }
