@@ -37,3 +37,9 @@
       name: "Shiva Karthikeya Murugan"
     ansible.builtin.debug:
       msg: "Hello, {{ name | upper }}"
+
+  - name: coverting string to lowercase
+    vars:
+      name: "Shiva Karthikeya Murugan"
+    ansible.builtin.debug:
+      msg: "Hello, {{ name | lower }}"
