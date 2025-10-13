@@ -1,0 +1,13 @@
+- name: loops in ansible
+  hosts: local
+  connection: local
+
+  tasks:
+  - name: printing names through loopback
+    ansible.builtin.debug:
+      msg: " {{ item }} "  #here item is reserved keyword, that which name value stores in item, and gives the result.
+    loop:
+    - karthikeya
+    - muruga
+    - saravana bava
+    - murugan macha
