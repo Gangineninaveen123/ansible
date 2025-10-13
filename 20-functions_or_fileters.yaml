@@ -12,4 +12,12 @@
   - name: Printing variables
     ansible.builtin.debug:
       msg: " Hello, {{ persons | split(',') }}" # here first, while printing persons it is string , while i have used split(''), with pipeline, it becomes list of persons, cool right...
-      
+
+  - name: Coverting map to list
+    vars:
+      course:
+        name: ansible
+        duration: 10hr
+        trainer: Sivakumar
+    ansible.builtin.debug:
+      msg: "Course info:- {{ course | dict2items }}"
