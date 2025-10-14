@@ -2,4 +2,5 @@
   hosts: frontend
   tasks:
   - name: Redirect, ls outpul to a file
-    ansible.builtin.command: "ls -ltr > /tmp/output.txt"
+    #ansible.builtin.command: "ls -ltr > /tmp/output.txt" [->  here i got the error ]
+    ansible.builtin.shell: "ls -ltr > /tmp/output.txt"
