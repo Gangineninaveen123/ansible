@@ -1,7 +1,8 @@
 - name: shell vs command
   hosts: frontend
   tasks:
-  - name: Redirect, ls outpul to a file
+  - name: Redirect, ls output to a file
+    #here 1st preference is alweays ansible.builtin.command, if its not working means like if we want piping , variables and redirections , then we will go for ansible.builtin.shell
     #ansible.builtin.command: "ls -ltr > /tmp/output.txt" [->  here i got the error ]
     ansible.builtin.shell: "ls -ltr > /tmp/output.txt"
     register: command_result  #The register keyword is used to store the output (result) of a task in a variable for later use in the playbook., where it stores the server details for ex- the output of ["ls -ltr > /tmp/output.txt"] -> directly stores in register keyword, which is command_result is varaiable -> its common thing we can write our varaible no issue...
@@ -9,4 +10,13 @@
   - name: print the outcome, which stores in command_result variable inside rersul
     ansible.builtin.debug:
       msg: " {{ command_result }}"
-      
+
+  - name: ls output to a file
+    ansible.builtin.command: "ls -ltr" # basic command so command used
+    register: command_output
+
+  - name: print the outcome, which stores in command_output variable
+    ansible.builtin.debug:
+      msg: " {{ command_output }}"
+
+
