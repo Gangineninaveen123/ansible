@@ -4,4 +4,14 @@
   tasks:
   - name: check roboshop user exists or not
     ansible.builtin.command: id roboshop
-    
+    register: output # so here i will get the output stored in register variable of id roboshop
+    ignore_errors: true
+
+  - name: create roboshop user
+    ansible.builtin.command: useradd roboshop
+    when: output.rc != 0  # its means exit status or return code other than 0 is a failure
+
+  - name: user already exists
+    ansible.builtin.debug:
+      msg: "user already exit"
+    when: output.rc == 0
