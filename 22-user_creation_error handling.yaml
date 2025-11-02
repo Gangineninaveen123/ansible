@@ -8,6 +8,7 @@
     ignore_errors: true
 
   - name: create roboshop user
+    become: yes
     ansible.builtin.command: useradd roboshop
     when: output.rc != 0  # its means exit status or return code other than 0 is a failure
 
