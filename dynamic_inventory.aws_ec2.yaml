@@ -9,7 +9,7 @@ filters:  #filtering what we want as frontend or backend or DB
 
 hostnames:  # getting ip address
   # You can also specify a list in order of precedence for hostname variables.
-  - ip-address
+  - private-ip-address
 
 compose:
   # This sets the `ansible_host` variable to connect with the private IP address without changing the hostname.
