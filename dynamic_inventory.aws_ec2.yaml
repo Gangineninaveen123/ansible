@@ -4,9 +4,9 @@ regions:
 - us-east-1   # our bussiness running region
 
 keyed_groups:   # group name as we have given in inventory file as name of the instance.. like that..
-- key: tags.Name
-  prefix: ""
-  separator: ""
+- key: tags.Name # dynamic_frontend
+  prefix: "dynamic"
+  separator: "_"
 
 
 filters:  #filtering what we want as frontend or backend or DB
