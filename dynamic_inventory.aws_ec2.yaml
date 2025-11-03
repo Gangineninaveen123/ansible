@@ -11,6 +11,11 @@ hostnames:  # getting ip address
   # You can also specify a list in order of precedence for hostname variables.
   - private-ip-address
 
+keyed_groups:   # group name as we have given in inventory file as name of the instance.. like that..
+- key: tags.Name
+  prefix: ""
+  separator: ""
+
 compose:
   # This sets the `ansible_host` variable to connect with the private IP address without changing the hostname.
   ansible_host: private_ip_address
