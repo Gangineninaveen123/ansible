@@ -1,0 +1,16 @@
+# type google in AWS DYNAMIC INVENTORY module in ansible, so we ll get the below all modules
+plugin: amazon.aws.aws_ec2  # here plugin, it comes with dependencies downloaded, form ansible boto3 and botocore
+regions:
+- us-east-1   # our bussiness running region
+
+filters:  #filtering what we want as frontend or backend or DB
+  tag:Name: frontend # filtering with frontend or backend or DB
+  instance-state-name : running # it should be running
+
+hostnames:  # getting ip address
+  # You can also specify a list in order of precedence for hostname variables.
+  - ip-address
+
+compose:
+  # This sets the `ansible_host` variable to connect with the private IP address without changing the hostname.
+  ansible_host: private_ip_address
