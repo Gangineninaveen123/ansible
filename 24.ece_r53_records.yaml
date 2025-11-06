@@ -24,3 +24,15 @@
   - name: printing ec2_output in register variable
     ansible.builtin.debug:
       msg: "{{ ec2_output }}"
+
+  - name: Creates r53 records [Add new.foo.com as an A record with 3 IPs and wait until the changes have been replicated]
+    amazon.aws.route53:
+      state: present
+      zone: muruga.site
+      record: "{{ item.item }}.{{ zone }} #mysql.muruga.site
+      type: A
+      ttl: 1
+      value: "{{ item.instance[0].private_ip_address }}"
+      wait: true
+      overwrite: true # if exited mysql ip address is there means, it ll update with new ip
+    loop: "{{ ec2_output.results }}"
