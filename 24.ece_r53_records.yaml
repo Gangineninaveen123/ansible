@@ -32,7 +32,7 @@
       record: "{{ item.item }}.{{ zone }} #mysql.muruga.site
       type: A
       ttl: 1
-      value: "{{ item.instance[0].private_ip_address }}"
+      value: "{{ item.instances[0].private_ip_address }}"
       wait: true
       overwrite: true # if exited mysql ip address is there means, it ll update with new ip
     loop: "{{ ec2_output.results }}"
