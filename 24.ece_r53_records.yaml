@@ -19,3 +19,8 @@
       tags:
         Environment: testing
     loop: "{{ instances}}"
+    register: ec2_output  # the output created instance will be stored in register variable
+
+  - name: printing ec2_output in register variable
+    ansible.builtin.debug:
+      msg: "{{ ec2_output }}"
