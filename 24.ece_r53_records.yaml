@@ -29,7 +29,7 @@
     amazon.aws.route53:
       state: present
       zone: muruga.site
-      record: "{{ item.item }}.{{ zone }} #mysql.muruga.site
+      record: "{{ item.item }}.{{ zone }}" #mysql.muruga.site
       type: A
       ttl: 1
       value: "{{ item.instances[0].private_ip_address }}"
