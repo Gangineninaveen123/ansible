@@ -1,6 +1,7 @@
 - name: Install nginx
   hosts: dynamic_frontend
   become: yes
+  serial: 3  # here serail means, this whole play book ll exute in first 3 servers, then 3 serservers, untill last 3 servers
   tasks:
   - name: Install nginx
     ansible.builtin.package:
