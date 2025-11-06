@@ -8,6 +8,7 @@
     - frontend
     subnet_id: subnet-0a8777752f9125a3e
     sg_id: sg-0d8d7189bee7912bc
+    zone: muruga.site
   tasks:
   - name: creating ec2 instances
     amazon.aws.ec2_instance:
@@ -28,7 +29,7 @@
   - name: Creates r53 records [Add new.foo.com as an A record with 3 IPs and wait until the changes have been replicated]
     amazon.aws.route53:
       state: present
-      zone: muruga.site
+      zone: "{{ zone }}"
       record: "{{ item.item }}.{{ zone }}" #mysql.muruga.site
       type: A
       ttl: 1
