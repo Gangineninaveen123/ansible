@@ -1,23 +1,31 @@
 # type google in AWS DYNAMIC INVENTORY module in ansible, so we ll get the below all modules
-plugin: amazon.aws.aws_ec2  # here plugin, it comes with dependencies downloaded, form ansible boto3 and botocore
+# The below give, all the regions in america - us-east-1
+# the below code is to get the publict/private ips in us-esat-1[region]
+plugin: amazon.aws.aws_ec2  # here plugin, it comes with dependencies downloaded, form ansible -  boto3 and botocore[pip3.9 install boto3 botocore] and will connect to ec2 instances
 regions:
-- us-east-1   # our bussiness running region
+- us-east-1   # our bussiness running region[it will get all the regions inside us-east-1 , for ex: 1a , 1b etc]
 
+
+# this is group inside dynamic_inventory same like in [inventory.ini , group names like frontend , backend and database]
 keyed_groups:   # group name as we have given in inventory file as name of the instance.. like that..
 - key: tags.Name # dynamic_frontend
   prefix: "dynamic"
   separator: "_"
 
 
+# filtering with frontend servers, and instance should be in running state.
 filters:  #filtering what we want as frontend or backend or DB
   tag:Name: frontend # filtering with frontend or backend or DB
   instance-state-name : running # it should be running
 
-hostnames:  # getting ip address
+# getting ip address
+hostnames:  
   # You can also specify a list in order of precedence for hostname variables.
   - private-ip-address
 
 
+# here ansible is connecting to private instances of frontend running instances below.
 compose:
+  # this private ip will given to ansible_host
   # This sets the `ansible_host` variable to connect with the private IP address without changing the hostname.
   ansible_host: private_ip_address

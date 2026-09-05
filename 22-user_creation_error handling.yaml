@@ -4,8 +4,9 @@
   tasks:
   - name: check roboshop user exists or not
     ansible.builtin.command: id roboshop
-    register: output # so here i will get the output stored in register variable of id roboshop
+    register: output # so here i will get the output stored in register keyword, where the output variable where, this [id roboshop] info ll store.
     ignore_errors: true
+    ignore_unreachable: true
 
   - name: create roboshop user
     become: yes
